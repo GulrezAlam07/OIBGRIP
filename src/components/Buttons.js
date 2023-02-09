@@ -37,7 +37,7 @@ const Buttons = ({ inputHandler, clearInput, backspace, changePlusMinus, calcula
         log
       </button>
       <button className="btn clr" onClick={backspace}>
-        ⌫
+      ⌫
       </button>
       <button className="btn clr" onClick={clearInput}>
         AC

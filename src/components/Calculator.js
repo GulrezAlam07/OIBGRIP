@@ -3,6 +3,9 @@ import Display from "./Display";
 import Buttons from "./Buttons";
 import "./styles/Calculator.css";
 import { evaluate, round } from "mathjs";
+import ReactSwitch from 'react-switch'
+
+export const themeContext = React.createContext(null);
 
 function Calculator() {
   const [input, setInput] = useState("");
@@ -78,7 +81,7 @@ function Calculator() {
     try {
       // check brackets are balanced or not
       if (!checkBracketBalanced(finalexpression)) {
-        const errorMessage = { message: "Brackets are not balanced!" };
+        const errorMessage = { message: "Brackets are not balanced!"};
         throw errorMessage;
       }
       result = evaluate(finalexpression); //mathjs
@@ -86,7 +89,7 @@ function Calculator() {
       result =
         error.message === "Brackets are not balanced!"
           ? "Brackets are not balanced!"
-          : "Invalid Input!!"; //error.message;
+          : "Invalid Input!"; //error.message;
     }
     isNaN(result) ? setAnswer(result) : setAnswer(round(result, 3));
   };
@@ -130,10 +133,25 @@ function Calculator() {
     }
   };
 
+  const [theme, setTheme] = useState('light')
+  const toggleTheme =()=> {
+    setTheme((curr)=>(curr ==='light' ? 'dark':'light'))
+  }
+
   return (
     <>
-      <div className="container">
-        <div className="main">
+    <div className="switch">
+      <label1>
+        {theme ==='light' ? "Light Mode" : "Dark Mode"}
+      </label1>
+      <ReactSwitch onChange={toggleTheme} checked={theme === "dark"}/>
+      <label2>
+        {theme ==="light" ? "Made by G-One":"Made by G1"}
+      </label2>
+    </div>
+    <themeContext.Provider value={{theme, toggleTheme}}>
+      <div className="container"  id= {theme}>
+        <div className="main" >
           <Display input={input} setInput={setInput} answer={answer} />
           <Buttons
             inputHandler={inputHandler}
@@ -144,6 +162,7 @@ function Calculator() {
           />
         </div>
       </div>
+      </themeContext.Provider>
     </>
   );
 }

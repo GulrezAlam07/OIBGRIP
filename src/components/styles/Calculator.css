@@ -1,3 +1,35 @@
+#light {
+  background-color: #dfe9f5;
+}
+
+#dark {
+  background-color: black;
+}
+
+label1 {
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  margin-right: 15px;
+  font-weight: 700;
+  font-size: larger;
+}
+label2 {
+  color: rgb(0, 0, 0);
+  font-family: cursive;
+  position:absolute;
+  margin-left: 70vw;
+  font-weight: 400;
+
+}
+
+.switch {
+  display: flex;
+  width: 100vw;
+  height: 30px;
+  justify-content:center;
+  align-items: center;
+}
+
 .container {
     background-color: #dfe9f5;
     min-height: 100vh;
@@ -18,5 +50,31 @@
     .main {
       width: 90%;
       height: 100%;
+      margin-top: -60px;
     }
-  }
+    
+label1 {
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  margin-right: 15px;
+  font-weight: 700;
+  font-size: larger;
+}
+label2 {
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  position:absolute;
+  margin-left: 60vw;
+  font-weight: 400;
+}
+
+.switch {
+  display: flex;
+  width: 100vw;
+  height: 50px;
+  justify-content: left;
+  margin-left: 5vw;
+}
+}
+
+

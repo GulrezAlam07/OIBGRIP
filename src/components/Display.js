@@ -1,5 +1,5 @@
-import React from "react";
 import "./styles/Display.css";
+import React from "react";
 
 const Display = ({ input, setInput, answer }) => {
   const onChangeTagInput = (e) => {
@@ -9,6 +9,9 @@ const Display = ({ input, setInput, answer }) => {
       setInput(e.target.value);
     }
   };
+
+
+
 
   return (
     <>
